@@ -10,6 +10,7 @@
 #include "pch.hpp"
 
 #include "creatures/combat/condition.h"
+#include "creatures/combat/functions/condition_speed.hpp"
 #include "game/game.h"
 #include "lua/functions/creatures/combat/condition_functions.hpp"
 

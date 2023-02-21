@@ -163,6 +163,7 @@ PRIVATE
 	creatures/combat/spells.cpp
 	creatures/creature.cpp
 	creatures/interactions/chat.cpp
+	creatures/combat/functions/condition_speed.cpp
 	creatures/monsters/monster.cpp
 	creatures/monsters/monsters.cpp
 	creatures/monsters/spawns/spawn_monster.cpp
