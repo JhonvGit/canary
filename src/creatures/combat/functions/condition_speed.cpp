@@ -92,7 +92,7 @@ bool ConditionSpeed::startCondition(Creature* creature) {
 			speedDelta = speedDelta - baseSpeed;
 		}
 
-		if (speedDelta < 40 - baseSpeed) {
+		if (conditionType == CONDITION_PARALYZE && speedDelta < baseSpeed - 40) {
 			speedDelta = 40 - baseSpeed;
 		}
 	}
@@ -139,7 +139,7 @@ void ConditionSpeed::addCondition(Creature* creature, const Condition* addCondit
 			speedDelta = speedDelta - baseSpeed;
 		}
 
-		if (speedDelta < baseSpeed - 40) {
+		if (conditionType == CONDITION_PARALYZE && speedDelta < baseSpeed - 40) {
 			speedDelta = 40 - baseSpeed;
 		}
 	}
