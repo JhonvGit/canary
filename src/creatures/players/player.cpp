@@ -400,7 +400,15 @@ int32_t Player::getDefense() const {
 		}
 	}
 
-	return (defenseSkill / 4. + 2.23) * defenseValue * 0.15 * getDefenseFactor() * vocation->defenseMultiplier;
+	auto value1 = ((defenseSkill / 4.0) + 2.23);
+	auto value2 = value1 * static_cast<double>(defenseValue);
+	auto value3 = value2 * 0.159;
+	auto value4 = value3 * static_cast<double>(getDefenseFactor());
+	auto value5 = value4 * static_cast<double>(vocation->defenseMultiplier);
+
+	// SPDLOG_WARN("1: {}, 2: {}, 3: {}, 4: {}, 5: {}", value1, value2, value3, value4, value5);
+
+	return value5;
 }
 
 float Player::getAttackFactor() const {
@@ -419,9 +427,9 @@ float Player::getAttackFactor() const {
 float Player::getDefenseFactor() const {
 	switch (fightMode) {
 		case FIGHTMODE_ATTACK:
-			return (OTSYS_TIME() - lastAttack) < getAttackSpeed() ? 0.5f : 1.0f;
+			return 0.5f;
 		case FIGHTMODE_BALANCED:
-			return (OTSYS_TIME() - lastAttack) < getAttackSpeed() ? 0.75f : 1.0f;
+			return 0.75f;
 		case FIGHTMODE_DEFENSE:
 			return 1.0f;
 		default:

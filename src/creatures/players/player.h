@@ -726,6 +726,11 @@ class Player final : public Creature, public Cylinder {
 		void setFightMode(FightMode_t mode) {
 			fightMode = mode;
 		}
+
+		uint8_t getFightMode() const {
+			return fightMode;
+		}
+
 		void setSecureMode(bool mode) {
 			secureMode = mode;
 		}
